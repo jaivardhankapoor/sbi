@@ -118,3 +118,22 @@ class LinearMVG2d(Task):
             likelihood_shift=self.likelihood_shift,
             likelihood_cov=self.likelihood_cov,
         )
+
+
+class LinearMVG2dShifted(LinearMVG2d):
+    """
+    Task for the Linear Multivariate Gaussian (MVG) model in 2D
+    with a shifted likelihood.
+    """
+
+    def __init__(self):
+        super().__init__()
+
+    def get_prior(self) -> Distribution:
+        """
+        Returns the prior distribution over parameters.
+
+        Returns:
+            Distribution: The prior distribution.
+        """
+        return MultivariateNormal(torch.ones(2), torch.eye(2))

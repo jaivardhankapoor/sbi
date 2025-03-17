@@ -35,6 +35,8 @@ from sbi.neural_nets.net_builders.mnle import build_mnle
 from sbi.neural_nets.net_builders.score_nets import build_score_estimator
 from sbi.utils.nn_utils import check_net_device
 
+DEBUG_ZSCORE_STYLE = None
+
 model_builders = {
     "mdn": build_mdn,
     "made": build_made,
@@ -61,8 +63,8 @@ embedding_net_warn_msg = """The passed embedding net will be moved to cpu for
 
 def classifier_nn(
     model: str,
-    z_score_theta: Optional[str] = "independent",
-    z_score_x: Optional[str] = "independent",
+    z_score_theta: Optional[str] = DEBUG_ZSCORE_STYLE,
+    z_score_x: Optional[str] = DEBUG_ZSCORE_STYLE,
     hidden_features: int = 50,
     embedding_net_theta: nn.Module = nn.Identity(),
     embedding_net_x: nn.Module = nn.Identity(),
@@ -136,8 +138,8 @@ def classifier_nn(
 
 def likelihood_nn(
     model: str,
-    z_score_theta: Optional[str] = "independent",
-    z_score_x: Optional[str] = "independent",
+    z_score_theta: Optional[str] = DEBUG_ZSCORE_STYLE,
+    z_score_x: Optional[str] = DEBUG_ZSCORE_STYLE,
     hidden_features: int = 50,
     num_transforms: int = 5,
     num_bins: int = 10,
@@ -211,8 +213,8 @@ def likelihood_nn(
 
 def flowmatching_nn(
     model: str,
-    z_score_theta: Optional[str] = "independent",
-    z_score_x: Optional[str] = "independent",
+    z_score_theta: Optional[str] = DEBUG_ZSCORE_STYLE,
+    z_score_x: Optional[str] = DEBUG_ZSCORE_STYLE,
     hidden_features: int = 64,
     num_layers: int = 5,
     num_blocks: int = 5,
@@ -273,8 +275,8 @@ def flowmatching_nn(
 
 def posterior_nn(
     model: str,
-    z_score_theta: Optional[str] = "independent",
-    z_score_x: Optional[str] = "independent",
+    z_score_theta: Optional[str] = DEBUG_ZSCORE_STYLE,
+    z_score_x: Optional[str] = DEBUG_ZSCORE_STYLE,
     hidden_features: int = 50,
     num_transforms: int = 5,
     num_bins: int = 10,
@@ -378,8 +380,8 @@ def posterior_nn(
 def posterior_score_nn(
     sde_type: str,
     score_net_type: Union[str, nn.Module] = "mlp",
-    z_score_theta: Optional[str] = "independent",
-    z_score_x: Optional[str] = "independent",
+    z_score_theta: Optional[str] = DEBUG_ZSCORE_STYLE,
+    z_score_x: Optional[str] = DEBUG_ZSCORE_STYLE,
     t_embedding_dim: int = 16,
     hidden_features: int = 50,
     embedding_net: nn.Module = nn.Identity(),

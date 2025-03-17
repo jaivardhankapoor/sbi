@@ -4,13 +4,14 @@
 
 from .base_task import Task
 from .gaussian_linear import GaussianLinear
-from .linear_mvg import LinearMVG2d
+from .linear_mvg import LinearMVG2d, LinearMVG2dShifted
 from .slcp import Slcp
 from .two_moons import TwoMoons
 
 TASKS = {
     "two_moons": TwoMoons,
     "linear_mvg_2d": LinearMVG2d,
+    "linear_mvg_2d_shifted": LinearMVG2dShifted,
     "gaussian_linear": GaussianLinear,
     "slcp": Slcp,
 }
@@ -23,7 +24,7 @@ def get_task(name: str, *args, **kwargs) -> Task:
     Args:
         name (str): The name of the task to retrieve.
                     Possible values are "two_moons", "linear_mvg_2d",
-                    "gaussian_linear", and "slcp".
+                    "linear_mvg_2d_shifted", "gaussian_linear", and "slcp".
 
     Returns:
         object: An instance of the corresponding task class.
