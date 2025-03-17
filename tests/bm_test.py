@@ -16,7 +16,7 @@ from .mini_sbibm.base_task import Task
 
 # Global settings
 SEED = 0
-TASKS = ["two_moons", "linear_mvg_2d", "gaussian_linear", "slcp"]
+TASKS = ["linear_mvg_2d", "linear_mvg_2d_shifted"]
 NUM_SIMULATIONS = 2000
 NUM_EVALUATION_OBS = 3  # Currently only 3 observation tested for speed
 NUM_ROUNDS_SEQUENTIAL = 2
